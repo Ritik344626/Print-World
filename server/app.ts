@@ -30,8 +30,7 @@ app.use(cookieParser());
 // Implement CORS
 const allowedOrigin = process.env.CLIENT_DOMAIN;
 app.use(cors({
-  origin: 'https://print-world.vercel.app',
-  methods: 'GET,POST',
+  origin: '*',
 }));
 
 // Serving static files
