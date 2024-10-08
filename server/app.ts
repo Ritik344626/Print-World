@@ -28,10 +28,24 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Implement CORS
-const allowedOrigin = process.env.CLIENT_DOMAIN;
-app.use(cors({
-  origin: '*',
-}));
+const allowedOrigins = [
+  'https://print-world.vercel.app',
+  'http://localhost:3001',
+];
+
+// Dynamic CORS configuration
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 // Serving static files
 app.use(express.static(`${__dirname}/public`));
