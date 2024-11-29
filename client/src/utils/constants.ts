@@ -1,4 +1,4 @@
-export const SERVER_DOMAIN: string = 'print-world-production.up.railway.app'
+export const SERVER_DOMAIN: string = 'https://print-world-production.up.railway.app'
 
 export const isValidEmailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
